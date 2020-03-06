@@ -37,31 +37,33 @@
               </p>
 
               <div className='card-list'>
-                {Card(cardData)}
+                <Card front={cardData.front} />
               </div>
             </div>
           );
         }
       }
 
-      var Card = function(props) {
-        return (
-          <div className='Card -front'>
-            <div className="front">
+      class Card extends React.Component {
+        render() {
+          return (
+            <div className='Card -front'>
+              <div className="front">
 
-              <h3 className='question'>
-                {props.front.question}
-              </h3>
+                <h3 className='question'>
+                  {this.props.front.question}
+                </h3>
 
-              <p className='hint'>
-                <span>Hint:</span>
-                {props.front.hint}
-              </p>
+                <p className='hint'>
+                  <span>Hint:</span>
+                  {this.props.front.hint}
+                </p>
 
+              </div>
             </div>
-          </div>
-        );
-      };
+          );
+        }
+      }
 
       ReactDOM.render(<App />, document.getElementById('app'));
     </script>
