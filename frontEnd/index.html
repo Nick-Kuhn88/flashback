@@ -16,13 +16,7 @@
   <div id="app"></div>
 
   <script type='text/babel'>
-
-    var cardData = {
-      front: {
-        question: 'You may know that React was created at _________.',
-        hint: 'This company\'s site is known for being written in PHP'
-      }
-    };
+    const cardData = importedFlashCardDataFile;
 
       class App extends React.Component {
         render() {
@@ -38,7 +32,7 @@
               </p>
 
               <div className='card-list'>
-                <Card front={cardData.front} />
+                {cardData.map((card) => <Card front={card.front} />)}
               </div>
             </div>
           );
